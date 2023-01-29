@@ -1,0 +1,300 @@
+@import url("./reset.css");
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    width: 100%;
+    font-family: 'Press Start 2P', cursive;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("./images/pared.jpg");
+    background-size: cover;
+}
+
+main {
+    width: 90%;
+    height: 90vh;
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    max-width: 1400px;
+}
+
+.tiembla {
+    animation: tiembla 0.2s ease;
+
+}
+
+@keyframes tiembla {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    25% {
+        transform: rotateZ(1deg);
+    }
+
+    50% {
+        transform: rotateZ(-1deg);
+    }
+
+    75% {
+        transform: rotateZ(1deg);
+    }
+
+    100% {
+        transform: rotateZ(-1deg);
+    }
+}
+
+canvas {
+    position: relative;
+    width: 100%;
+    background-color: rgb(48, 110, 77);
+    border: solid 20px rgb(2, 36, 2);
+    height: 125%;
+
+}
+
+.canvas {
+    max-width: 1200px;
+    position: relative;
+    margin-top: 2%;
+    display: flex;
+
+    justify-content: center;
+    width: 95%;
+    margin-bottom: 40px;
+}
+
+.puntuacion {
+    position: absolute;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    z-index: 1;
+    right: 8%;
+    top: 10%;
+    font-size: 2em;
+    opacity: 0;
+}
+
+i {
+    font-size: 1.5em;
+    color: rgb(218, 53, 53);
+
+}
+
+.letras {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    bottom: -17%;
+}
+
+.gameArea_word {
+    -webkit-text-stroke: 0.5px rgb(35, 34, 34);
+    font-size: 3em;
+    width: 70px;
+    height: 60px;
+    border-bottom: solid black 5px;
+}
+
+span {
+    transition: all ease 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.pistas {
+    opacity: 1;
+    color: rgb(21, 154, 187);
+}
+
+.keyboard {
+    width: 85%;
+    max-width: 1000px;
+    min-height: 100px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    text-transform: uppercase;
+
+
+}
+
+.keyboard_row {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+
+}
+
+
+.keyboard_row3 {
+    width: 70%;
+}
+
+.keyboard_row li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80px;
+    text-align: center;
+    color: white;
+    background: rgb(12, 12, 12);
+    border: 1px solid #f9f9f9;
+}
+
+.usada,
+.usada_mal,
+.disable {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.keyboard_row .usada {
+    background-color: rgb(49, 187, 125);
+}
+
+.keyboard_row .usada_mal {
+    background-color: rgb(228, 98, 98);
+}
+
+.keyboard_row .disable {
+    background-color: gray;
+    ;
+}
+
+
+.keyboard li:hover {
+    position: relative;
+    top: 1px;
+    left: 1px;
+    border-color: #e5e5e5;
+    cursor: pointer;
+}
+
+.restartGame {
+    height: 60px;
+    position: absolute;
+    top: 3%;
+    left: 10%;
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(66, 182, 124);
+    border: solid 3px rgb(237, 241, 237);
+    letter-spacing: 0.05em;
+    font-size: 1.5em;
+    font-family: 'Press Start 2P', cursive;
+    -webkit-text-stroke: 2px black;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    width: 100%;
+    height: 10vh;
+    background-color: rgba(0, 0, 0, 0.818);
+
+}
+
+.redes {
+    width: 100px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.fa-linkedin:hover {
+    color: #0C67C3;
+}
+
+.fa-github:hover {
+    filter: invert(100%);
+}
+
+
+@media (max-width:1000px) {
+
+    main {
+        gap: 0;
+        justify-content: space-around;
+    }
+
+    .letras {
+        position: relative;
+        bottom: 0;
+    }
+
+
+
+    .canvas {
+        flex-direction: column;
+        gap: 100px;
+    }
+
+    canvas {
+        height: 100%;
+        border: solid 10px rgb(2, 36, 2);
+    }
+
+}
+
+@media (max-width:450px) {
+    body {
+        font-size: 0.7em;
+    }
+
+    .letras {
+        font-size: 1em;
+    }
+
+    main {
+        justify-content: center;
+    }
+
+    .gameArea_word {
+        width: 100%;
+        height: 100%;
+    }
+
+    .canvas {
+        height: 380px;
+    }
+
+    .keyboard {
+        width: 100%;
+    }
+
+    .keyboard_row li {
+        height: 40px;
+        width: 90px;
+
+    }
+
+    .restartGame {
+        height: 50px;
+
+        left: calc(50% - 70px);
+
+    }
+}
