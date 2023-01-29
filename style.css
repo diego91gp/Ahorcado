@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
+    min-width: 414px;
     width: 100%;
     font-family: 'Press Start 2P', cursive;
     user-select: none;
@@ -261,6 +262,7 @@ footer {
 
 @media (max-width:450px) {
     body {
+        overflow-x: none;
         font-size: 0.7em;
     }
 
@@ -277,9 +279,7 @@ footer {
         height: 100%;
     }
 
-    .canvas {
-        height: 380px;
-    }
+
 
     .keyboard {
         width: 100%;
@@ -301,8 +301,9 @@ footer {
     }
 
     .canvas {
+        height: 380px;
 
-        width: 108%;
+        width: 100%;
         margin-top: 50px;
         gap: 50px;
     }
