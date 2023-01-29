@@ -285,16 +285,35 @@ footer {
         width: 100%;
     }
 
+    .keyboard_row {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
     .keyboard_row li {
         height: 40px;
-        width: 90px;
+        width: 70px;
+    }
 
+    h1 {
+        display: none;
+    }
+
+    .canvas {
+
+        width: 108%;
+        margin-top: 50px;
+        gap: 50px;
+    }
+
+    canvas {
+        border: solid 5px rgb(2, 36, 2);
     }
 
     .restartGame {
-        height: 50px;
-
-        left: calc(50% - 70px);
+        height: 40px;
+        left: calc(50% - 50px);
 
     }
 }
