@@ -1,17 +1,17 @@
 window.onload = function () {
+
     let canvas = document.querySelector("canvas");
     let ctx = document.querySelector("canvas").getContext("2d");
     let palabras = ["Hawai", "Rascacielos", "Cantimplora", "Murcielago", "Chipiron", "Peluqueria", "Diccionario", "Escuela", "Visado", "Informatica", "Taladro", "Amarillo", "Presidente", "Chimenea", "espinilla", "rodilla", "muslo", "cabeza", "cara", "boca", "labio", "diente", "nariz", "bigote", "cabello", "oreja", "cerebro", "brazo", "hombro", "mano", "muñeca", "palma", "Nieve", "Cepillo", "Intercambio", "Telaraña", "Hermanos", "Viaje", "Camion", "Prueba", "Huevo", "Gato", "Sistema", "Beisbol", "Comida", "Ladron", "Gobierno", "Conejos", "Burbuja", "Autopista", "Muñeca", "Preferencia", "Nacimiento", "Partida", "Zapato", "Baloncesto", "Lagartos", "Entrenador", "Dibujo", "Sopa", "Audiencia", "Dormir", "Guitarra", "Avena", "Cancer"];
+    const sonidoerror = new Audio(('/images/error.mp3'));
+    const sonidoperdedor = new Audio(('/images/gameover.mp3'));
+    const sonidoacierto = new Audio(('/images/correcto.mp3'));
+    const sonidoganador = new Audio(('/images//winner.mp3'));
     let teclasusadas = [];
     let correctas = 0;
+
     let vidas;
-    let sonidoperdedor = document.createElement("audio");
-    let sonidoerror = document.createElement("audio");
-    let sonidoacierto = document.createElement("audio");
-    let sonidoganador = document.createElement("audio");
-    sonidoganador.src = "/Ahorcado/images/winner.mp3"
-    sonidoperdedor.src = "/Ahorcado/images/gameover.mp3";
-    sonidoerror.src = "/Ahorcado/images/error.mp3";
+
     document.body.appendChild(sonidoerror);
     document.querySelector(".restartGame").addEventListener("click", restartGame);
     document.addEventListener('keydown', (event) => vertecla(event));
@@ -23,9 +23,6 @@ window.onload = function () {
     }
 
 
-
-    //coger solo teclas
-    //vista movil
     //saber si gaó o perdió
 
     function getAleatorio(params) {
@@ -39,6 +36,7 @@ window.onload = function () {
         }
     }
     function resetearVariables() {
+        document.querySelector("h1").style.display = "none";
         document.querySelector(".puntuacion").style.opacity = "1";
         correctas = 0;
         teclasusadas = [];
@@ -87,6 +85,7 @@ window.onload = function () {
             pintaUsada(palabra, pista1);
             teclasusadas.push(palabra[pista1].toLowerCase());
             correctas++;
+
         }
 
     }
@@ -137,7 +136,7 @@ window.onload = function () {
                 lifes.textContent = vidas;
                 let draw = eval("drawPath" + vidas);
                 draw();
-                sonidoerror.play();
+                sonidoerror.play()
                 console.log(vidas);
                 document.querySelector("canvas").classList.add("tiembla");
                 setTimeout(() => {
@@ -150,7 +149,7 @@ window.onload = function () {
             for (const letraSolucion of document.querySelectorAll("span")) {
                 if (letraSolucion.textContent == tecla) {
                     pintaUsada(palabraActual, tecla);
-                    letraSolucion.style.opacity = "1";
+                    letraSolucion.classList.add("op");
                     correctas++;
                 }
             }
@@ -159,8 +158,15 @@ window.onload = function () {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 document.querySelector(".puntuacion").style.opacity = "0";
                 sonidoganador.play();
-
+                document.querySelector("h1").innerHTML = "<strong>WINNER</strong>";
+                document.querySelector("h1").style.display = "block";
+                for (const tecla of document.querySelectorAll(".enable")) {
+                    tecla.classList.replace("enable", "disable");
+                }
+                vidas = null;
             }
+
+            sonidoacierto.play();
         }
     }
 
@@ -169,8 +175,15 @@ window.onload = function () {
             lifes.textContent = "0";
             drawPath0();
             sonidoperdedor.play();
+            vidas = null;
             for (const tecla of document.querySelectorAll(".enable")) {
                 tecla.classList.replace("enable", "disable");
+            }
+            for (const span of document.querySelectorAll("span")) {
+                if (span.classList == "") {
+                    span.style.opacity = "1";
+                    span.style.color = "#E46262";
+                }
             }
             return false;
         } else {

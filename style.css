@@ -98,6 +98,63 @@ i {
     bottom: -17%;
 }
 
+h1 {
+    line-height: 2em;
+    text-align: center;
+    font-size: 2em;
+    width: 90%;
+    position: absolute;
+    top: 30%;
+    left: 5%;
+
+}
+
+.gameArea_word .p1 {
+    animation: 1s colores ease infinite alternate;
+}
+
+.gameArea_word .p2 {
+    animation: 1s colores ease infinite alternate-reverse;
+}
+
+@keyframes efecto {
+    0% {
+        opacity: 0.9;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0.9;
+    }
+}
+
+@keyframes colores {
+    0% {
+        color: #DA3535;
+    }
+
+    50% {
+        color: #0C67C3;
+    }
+
+    75% {
+        color: #25bc39;
+    }
+
+    100% {
+        color: rgb(213, 204, 41);
+    }
+}
+
+strong {
+    animation: 1s efecto ease infinite;
+    color: #DA3535;
+
+}
+
 .gameArea_word {
     -webkit-text-stroke: 0.5px rgb(35, 34, 34);
     font-size: 3em;
@@ -115,6 +172,11 @@ span {
     height: 100%;
     opacity: 0;
 }
+
+.op {
+    opacity: 1;
+}
+
 
 .pistas {
     opacity: 1;
@@ -193,8 +255,8 @@ span {
 .restartGame {
     height: 60px;
     position: absolute;
-    top: 3%;
-    left: 10%;
+    top: 0.5%;
+    left: (50% - 50px);
     border-radius: 15px;
     cursor: pointer;
     color: white;
@@ -204,6 +266,14 @@ span {
     font-size: 1.5em;
     font-family: 'Press Start 2P', cursive;
     -webkit-text-stroke: 2px black;
+    transition: all 1s;
+}
+
+.restartGame:hover {
+    color: #0582ff;
+    -webkit-text-stroke: 2px white;
+    transform: scale(1.1);
+    border: solid 3px black;
 }
 
 footer {
@@ -234,6 +304,17 @@ footer {
 
 
 @media (max-width:1000px) {
+
+    .gameArea_word {
+        text-align: center;
+        min-width: 22px;
+        height: 100%;
+    }
+
+    h1 {
+        top: 20%;
+        font-size: 1.2em;
+    }
 
     main {
         gap: 0;
@@ -274,11 +355,7 @@ footer {
         justify-content: center;
     }
 
-    .gameArea_word {
-        text-align: c;
-        min-width: 22px;
-        height: 100%;
-    }
+
 
     span {
         text-align: center;
@@ -301,8 +378,14 @@ footer {
     }
 
     h1 {
-        display: none;
+        top: 20%;
+        font-size: 1em;
     }
+
+    strong {
+        color: #0582ff;
+    }
+
 
     .canvas {
         height: 200px;
