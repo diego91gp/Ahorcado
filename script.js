@@ -2,19 +2,22 @@ window.onload = function () {
 
     let canvas = document.querySelector("canvas");
     let ctx = document.querySelector("canvas").getContext("2d");
+
     let palabras = ["Hawai", "Rascacielos", "Cantimplora", "Murcielago", "Chipiron", "Peluqueria", "Diccionario", "Escuela", "Visado", "Informatica", "Taladro", "Amarillo", "Presidente", "Chimenea", "espinilla", "rodilla", "muslo", "cabeza", "cara", "boca", "labio", "diente", "nariz", "bigote", "cabello", "oreja", "cerebro", "brazo", "hombro", "mano", "muñeca", "palma", "Nieve", "Cepillo", "Intercambio", "Telaraña", "Hermanos", "Viaje", "Camion", "Prueba", "Huevo", "Gato", "Sistema", "Beisbol", "Comida", "Ladron", "Gobierno", "Conejos", "Burbuja", "Autopista", "Muñeca", "Preferencia", "Nacimiento", "Partida", "Zapato", "Baloncesto", "Lagartos", "Entrenador", "Dibujo", "Sopa", "Audiencia", "Dormir", "Guitarra", "Avena", "Cancer"];
-    const sonidoerror = new Audio(('/images/error.mp3'));
-    const sonidoperdedor = new Audio(('/images/gameover.mp3'));
-    const sonidoacierto = new Audio(('/images/correcto.mp3'));
-    const sonidoganador = new Audio(('/images//winner.mp3'));
+
+    const sonidoerror = new Audio("images/error.mp3");
+    const sonidoperdedor = new Audio("images/gameover.mp3");
+    const sonidoacierto = new Audio("images/correcto.mp3");
+    const sonidoganador = new Audio("images/winner.mp3");
+
     let teclasusadas = [];
     let correctas = 0;
-
     let vidas;
 
     document.body.appendChild(sonidoerror);
     document.querySelector(".restartGame").addEventListener("click", restartGame);
     document.addEventListener('keydown', (event) => vertecla(event));
+
     let lifes = document.querySelector(".lifes");
     let gameArea = document.querySelector(".letras");
     let teclaTeclado = document.querySelectorAll("li");
@@ -23,7 +26,7 @@ window.onload = function () {
     }
 
 
-    //saber si gaó o perdió
+    //quitar sonido
 
     function getAleatorio(params) {
         let resultado;
