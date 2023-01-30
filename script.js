@@ -9,9 +9,16 @@ window.onload = function () {
 
     /***************Declaro los sonidos que voy a usar******/
     const sonidoerror = new Audio("images/error.mp3");
+    const bso = new Audio("images/bso.mp3");
+    bso.loop = "loop";
     const sonidoperdedor = new Audio("images/gameover.mp3");
+    const disparo = new Audio("images/disparo.mp3");
     const sonidoacierto = new Audio("images/correcto.mp3");
     const sonidoganador = new Audio("images/winner.mp3");
+    let quitarSonido = document.querySelectorAll(".mute");
+    for (const mute of quitarSonido) {
+        mute.addEventListener("click", silencia);
+    }
     const cuerda = new Image();
     cuerda.src = "images/cuerda.png";
     const peluca = new Image();
@@ -38,10 +45,9 @@ window.onload = function () {
     for (const teclaPulsada of teclaTeclado) {
         teclaPulsada.addEventListener("click", vertecla);
     }
-    restartGame();
 
 
-    //quitar sonido
+
 
     function getAleatorio(params) {
         let resultado;
@@ -68,7 +74,16 @@ window.onload = function () {
         gameArea.innerHTML = "";
     }
 
+    function silencia() {
+        bso.muted = !bso.muted;
+        this.firstElementChild.classList.toggle("tacha");
+    }
+
     function restartGame() {
+        disparo.play();
+        setTimeout(() => {
+            bso.play();
+        }, 500);
 
         resetearVariables();
 
