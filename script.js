@@ -19,15 +19,24 @@ window.onload = function () {
     for (const mute of quitarSonido) {
         mute.addEventListener("click", silencia);
     }
+    const pistola = new Image();
+    pistola.src = "images/pistola.png";
+    const bota2 = new Image();
+    bota2.src = "images/bota2.png";
+    const bota = new Image();
+    bota.src = "images/bota.png";
     const cuerda = new Image();
     cuerda.src = "images/cuerda.png";
+    const bandana = new Image();
+    bandana.src = "images/bandana.png";
     const peluca = new Image();
     peluca.src = "images/peluca.png";
     peluca.onload = function () {
         peluca.decode();
-    }
-    cuerda.onload = function () {
+        bota.decode();
+        bota2.decode();
         cuerda.decode();
+        bandana.decode();
     }
 
     //***********Array que incluye las teclas usadas contador correctas para comprobar la solucion y vidas */
@@ -278,7 +287,7 @@ window.onload = function () {
         ctx.fillStyle = "#8b0000";
         ctx.fill();
         ctx.stroke();
-        ctx.drawImage(peluca, 252, 84);
+        ctx.drawImage(peluca, 252, 75);
     }
 
     function drawPath4() {
@@ -287,6 +296,7 @@ window.onload = function () {
         ctx.ellipse(280, 160, 25, 20, 0, 0, Math.PI * 2);
         ctx.fill();
         ctx.stroke();
+        ctx.drawImage(bandana, 259, 118);
     }
 
     function drawPath3() {
@@ -312,6 +322,7 @@ window.onload = function () {
         ctx.fillStyle = "#8b0000";
         ctx.fill();
         ctx.stroke();
+        ctx.drawImage(pistola, 200, 140);
     }
 
     function drawPath1() {
@@ -321,6 +332,7 @@ window.onload = function () {
         ctx.strokeStyle = "black";
         ctx.fill();
         ctx.stroke();
+        ctx.drawImage(bota, 215, 175);
     }
 
     function drawPath0() {
@@ -339,17 +351,14 @@ window.onload = function () {
         ctx.strokeStyle = "black";
         ctx.moveTo(286.5, 112);
         ctx.lineTo(292.5, 117);
-
         ctx.moveTo(292.5, 112);
         ctx.lineTo(286.5, 117);
-
         ctx.moveTo(266.5, 112);
         ctx.lineTo(272.5, 117);
-
         ctx.moveTo(272.5, 112);
         ctx.lineTo(266.5, 117);
-
         ctx.stroke();
+        ctx.drawImage(bota2, 286, 175);
 
 
     }
