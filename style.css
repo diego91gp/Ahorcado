@@ -184,7 +184,7 @@ h1 {
     font-size: 2em;
     width: 90%;
     position: absolute;
-    top: 30%;
+    top: 10%;
     left: 5%;
 
 }
@@ -199,7 +199,7 @@ h1 {
 
 strong {
     animation: 1s efecto ease infinite;
-    color: #DA3535;
+    color: #0582ff;
 
 }
 
@@ -372,8 +372,15 @@ p {
         font-size: 1em;
     }
 
-    strong {
-        color: #0582ff;
+
+
+    .restartGame:hover {
+        animation: none;
+        color: auto;
+    }
+
+    .fa-heart {
+        font-size: 0.7em;
     }
 
     .canvas {

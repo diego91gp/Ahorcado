@@ -21,6 +21,8 @@ window.onload = function () {
     }
     const pistola = new Image();
     pistola.src = "images/pistola.png";
+    const wanted = new Image();
+    wanted.src = "images/sebusca.png";
     const bota2 = new Image();
     bota2.src = "images/bota2.png";
     const bota = new Image();
@@ -205,6 +207,7 @@ window.onload = function () {
                 for (const tecla of document.querySelectorAll(".enable")) {
                     tecla.classList.replace("enable", "disable");
                 }
+                ctx.drawImage(wanted, 235, 100);
                 vidas = null;
             }
 
