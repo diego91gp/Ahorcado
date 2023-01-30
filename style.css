@@ -83,6 +83,15 @@ body {
     background-size: cover;
 }
 
+.girar {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+}
+
 .mute {
     font-size: 1.3em;
     display: flex;
@@ -321,7 +330,18 @@ p {
     border: solid 3px black;
 }
 
-@media (max-width:450px) {
+@media (max-height:400px) {
+    .girar {
+        display: block;
+    }
+
+    body {
+        overflow-y: hidden;
+    }
+
+}
+
+@media (max-width:430px) {
 
     body {
         font-size: 0.7em;
@@ -353,7 +373,7 @@ p {
     }
 
     .keyboard {
-        width: 100%;
+        width: 90%;
     }
 
     .keyboard_row {
