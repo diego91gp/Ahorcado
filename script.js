@@ -1,13 +1,10 @@
-window.onload = function () {
+import { palabras } from "./palabras.js";
 
+window.onload = function () {
     let canvas = document.querySelector("canvas");
     let ctx = document.querySelector("canvas").getContext("2d");
 
-
-
-    let palabras = ["Hawai", "Rascacielos", "Cantimplora", "Murcielago", "Chipiron", "Peluqueria", "Diccionario", "Escuela", "Visado", "Informatica", "Taladro", "Amarillo", "Presidente", "Chimenea", "espinilla", "rodilla", "muslo", "cabeza", "cara", "boca", "labio", "diente", "nariz", "bigote", "cabello", "oreja", "cerebro", "brazo", "hombro", "mano", "muñeca", "palma", "Nieve", "Cepillo", "Intercambio", "Telaraña", "Hermanos", "Viaje", "Camion", "Prueba", "Huevo", "Gato", "Sistema", "Beisbol", "Comida", "Ladron", "Gobierno", "Conejos", "Burbuja", "Autopista", "Muñeca", "Preferencia", "Nacimiento", "Partida", "Zapato", "Baloncesto", "Lagartos", "Entrenador", "Dibujo", "Sopa", "Audiencia", "Dormir", "Guitarra", "Avena", "Cancer"];
-
-    /***************Declaro los sonidos que voy a usar******/
+    /***************Declaro los sonidos que voy a usar y las imagenes******/
     const sonidoerror = new Audio("images/error.mp3");
     const bso = new Audio("images/bso.mp3");
     bso.loop = "loop";
@@ -15,10 +12,8 @@ window.onload = function () {
     const disparo = new Audio("images/disparo.mp3");
     const sonidoacierto = new Audio("images/correcto.mp3");
     const sonidoganador = new Audio("images/winner.mp3");
-    let quitarSonido = document.querySelectorAll(".mute");
-    for (const mute of quitarSonido) {
-        mute.addEventListener("click", silencia);
-    }
+    document.querySelector(".mute").addEventListener("click", silencia);
+
     const pistola = new Image();
     pistola.src = "images/pistola.png";
     const wanted = new Image();
@@ -40,6 +35,7 @@ window.onload = function () {
         cuerda.decode();
         bandana.decode();
     }
+    /******************************************************************************************************** */
 
     //***********Array que incluye las teclas usadas contador correctas para comprobar la solucion y vidas */
     let teclasusadas = [];
