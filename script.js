@@ -3,20 +3,34 @@ window.onload = function () {
     let canvas = document.querySelector("canvas");
     let ctx = document.querySelector("canvas").getContext("2d");
 
+
+
     let palabras = ["Hawai", "Rascacielos", "Cantimplora", "Murcielago", "Chipiron", "Peluqueria", "Diccionario", "Escuela", "Visado", "Informatica", "Taladro", "Amarillo", "Presidente", "Chimenea", "espinilla", "rodilla", "muslo", "cabeza", "cara", "boca", "labio", "diente", "nariz", "bigote", "cabello", "oreja", "cerebro", "brazo", "hombro", "mano", "muñeca", "palma", "Nieve", "Cepillo", "Intercambio", "Telaraña", "Hermanos", "Viaje", "Camion", "Prueba", "Huevo", "Gato", "Sistema", "Beisbol", "Comida", "Ladron", "Gobierno", "Conejos", "Burbuja", "Autopista", "Muñeca", "Preferencia", "Nacimiento", "Partida", "Zapato", "Baloncesto", "Lagartos", "Entrenador", "Dibujo", "Sopa", "Audiencia", "Dormir", "Guitarra", "Avena", "Cancer"];
 
+    /***************Declaro los sonidos que voy a usar******/
     const sonidoerror = new Audio("images/error.mp3");
     const sonidoperdedor = new Audio("images/gameover.mp3");
     const sonidoacierto = new Audio("images/correcto.mp3");
     const sonidoganador = new Audio("images/winner.mp3");
+    const cuerda = new Image();
+    cuerda.src = "images/cuerda.png";
+    const peluca = new Image();
+    peluca.src = "images/peluca.png";
+    peluca.onload = function () {
+        peluca.decode();
+    }
+    cuerda.onload = function () {
+        cuerda.decode();
+    }
 
+    //***********Array que incluye las teclas usadas contador correctas para comprobar la solucion y vidas */
     let teclasusadas = [];
     let correctas = 0;
     let vidas;
 
     document.body.appendChild(sonidoerror);
     document.querySelector(".restartGame").addEventListener("click", restartGame);
-    document.addEventListener('keydown', (event) => vertecla(event));
+    document.addEventListener('keydown', vertecla);
 
     let lifes = document.querySelector(".lifes");
     let gameArea = document.querySelector(".letras");
@@ -24,6 +38,7 @@ window.onload = function () {
     for (const teclaPulsada of teclaTeclado) {
         teclaPulsada.addEventListener("click", vertecla);
     }
+    restartGame();
 
 
     //quitar sonido
@@ -46,7 +61,7 @@ window.onload = function () {
         for (const teclaPulsada of teclaTeclado) {
             teclaPulsada.classList.replace(...teclaPulsada.classList, "enable");
         }
-        vidas = 9;
+        vidas = 7;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawPath();
         lifes.textContent = vidas;
@@ -196,37 +211,33 @@ window.onload = function () {
 
     /***************FUNCIONES PARA PINTAR**************** */
     function drawPath() {
-        ctx.strokeStyle = "white";
-        ctx.fillStyle = "#DFB600";
-        ctx.beginPath();
-        ctx.moveTo(100, canvas.height - 50);
-        ctx.lineTo(350, 250);
-        ctx.stroke();
-    }
-
-    function drawPath8() {
-        ctx.beginPath();
-        ctx.moveTo(180, 250);
-        ctx.lineTo(180, 55);
-        ctx.stroke();
-
-    }
-    function drawPath7() {
+        ctx.strokeStyle = "black";
+        ctx.fillStyle = "#571e02";
         ctx.beginPath();
         ctx.moveTo(180, 55);
-        ctx.lineTo(280, 55);
+        ctx.rect(180, 55, 15, 196);
+        ctx.fill();
         ctx.stroke();
-
+        ctx.beginPath();
+        ctx.moveTo(100, canvas.height - 50);
+        ctx.rect(100, canvas.height - 50, 350, 10);
+        ctx.fill();
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(181, 55);
+        ctx.rect(180, 54, 190, 10);
+        ctx.fill();
+        ctx.stroke();
     }
 
     function drawPath6() {
-        ctx.beginPath();
-        ctx.moveTo(280, 55);
-        ctx.lineTo(280, 100);
-        ctx.stroke();
+        ctx.drawImage(cuerda, 241, 55);
     }
 
     function drawPath5() {
+
+        ctx.strokeStyle = "black";
+        ctx.fillStyle = "#DFB600";
         ctx.beginPath();
         ctx.arc(280, 120, 20, 0, 2 * Math.PI, false);
         ctx.strokeStyle = "black";
@@ -252,6 +263,7 @@ window.onload = function () {
         ctx.fillStyle = "#8b0000";
         ctx.fill();
         ctx.stroke();
+        ctx.drawImage(peluca, 252, 84);
     }
 
     function drawPath4() {

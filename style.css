@@ -1,34 +1,6 @@
 @import url("./reset.css");
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-body {
-    width: 100%;
-    font-family: 'Press Start 2P', cursive;
-    user-select: none;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-image: url("./images/pared.jpg");
-    background-size: cover;
-}
-
-main {
-    width: 90%;
-    height: 90vh;
-    display: flex;
-    gap: 100px;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    max-width: 1400px;
-}
-
-.tiembla {
-    animation: tiembla 0.2s ease;
-
-}
-
 @keyframes tiembla {
     0% {
         transform: rotateZ(0deg);
@@ -51,70 +23,18 @@ main {
     }
 }
 
-canvas {
-    position: relative;
-    width: 100%;
-    background-color: rgb(48, 110, 77);
-    border: solid 20px rgb(2, 36, 2);
-    height: 125%;
+@keyframes parpadea {
+    0% {
+        transform: scale(1);
+    }
 
-}
+    50% {
+        transform: scale(1.3);
+    }
 
-.canvas {
-    max-width: 1200px;
-    position: relative;
-    margin-top: 2%;
-    display: flex;
-
-    justify-content: center;
-    width: 95%;
-    margin-bottom: 40px;
-}
-
-.puntuacion {
-    position: absolute;
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    z-index: 1;
-    right: 8%;
-    top: 10%;
-    font-size: 2em;
-    opacity: 0;
-}
-
-i {
-    font-size: 1.5em;
-    color: rgb(218, 53, 53);
-
-}
-
-.letras {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    position: absolute;
-    bottom: -17%;
-}
-
-h1 {
-    line-height: 2em;
-    text-align: center;
-    font-size: 2em;
-    width: 90%;
-    position: absolute;
-    top: 30%;
-    left: 5%;
-
-}
-
-.gameArea_word .p1 {
-    animation: 1s colores ease infinite alternate;
-}
-
-.gameArea_word .p2 {
-    animation: 1s colores ease infinite alternate-reverse;
+    100% {
+        transform: scale(1);
+    }
 }
 
 @keyframes efecto {
@@ -149,6 +69,96 @@ h1 {
     }
 }
 
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Press Start 2P', cursive;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url("./images/fondo.webp");
+    background-position: center;
+    background-size: cover;
+}
+
+main {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    gap: 45px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tiembla {
+    animation: tiembla 0.2s ease;
+}
+
+canvas {
+    position: relative;
+    width: 100%;
+    background-color: rgba(201, 86, 15, 0.562);
+    border-radius: 8px;
+    border: solid 20px rgba(24, 8, 1, 0.718);
+}
+
+.canvas {
+    max-width: 930px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 95%;
+}
+
+.puntuacion {
+    position: absolute;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    z-index: 1;
+    right: 8%;
+    top: 10%;
+    font-size: 2em;
+    opacity: 0;
+}
+
+i {
+    -webkit-text-stroke: 1px rgb(0, 0, 0);
+    font-size: 1.2em;
+    color: rgb(218, 53, 53);
+    animation: parpadea ease 1s infinite;
+}
+
+.letras {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+h1 {
+    line-height: 2em;
+    text-align: center;
+    font-size: 2em;
+    width: 90%;
+    position: absolute;
+    top: 30%;
+    left: 5%;
+
+}
+
+.gameArea_word .p1 {
+    animation: 1s colores ease infinite alternate;
+}
+
+.gameArea_word .p2 {
+    animation: 1s colores ease infinite alternate-reverse;
+}
+
 strong {
     animation: 1s efecto ease infinite;
     color: #DA3535;
@@ -156,7 +166,7 @@ strong {
 }
 
 .gameArea_word {
-    -webkit-text-stroke: 0.5px rgb(35, 34, 34);
+    -webkit-text-stroke: 2px rgb(0, 0, 0);
     font-size: 3em;
     width: 70px;
     height: 60px;
@@ -164,6 +174,7 @@ strong {
 }
 
 span {
+
     transition: all ease 0.5s;
     display: flex;
     align-items: center;
@@ -177,6 +188,9 @@ span {
     opacity: 1;
 }
 
+p {
+    text-align: center;
+}
 
 .pistas {
     opacity: 1;
@@ -187,7 +201,6 @@ span {
     width: 85%;
     max-width: 1000px;
     min-height: 100px;
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -195,17 +208,13 @@ span {
     align-items: center;
     list-style: none;
     text-transform: uppercase;
-
-
 }
 
 .keyboard_row {
     width: 100%;
     display: flex;
     gap: 5px;
-
 }
-
 
 .keyboard_row3 {
     width: 70%;
@@ -215,12 +224,13 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80%;
-    height: 80px;
+    width: 70%;
+    height: 70px;
     text-align: center;
-    color: white;
-    background: rgb(12, 12, 12);
-    border: 1px solid #f9f9f9;
+    color: rgba(241, 234, 232, 0.974);
+    border-radius: 5px;
+    background: rgba(45, 26, 13, 0.939);
+    border: 1px solid #f9f9f9c8;
 }
 
 .usada,
@@ -231,16 +241,15 @@ span {
 }
 
 .keyboard_row .usada {
-    background-color: rgb(49, 187, 125);
+    background-color: rgba(49, 187, 125, 0.886);
 }
 
 .keyboard_row .usada_mal {
-    background-color: rgb(228, 98, 98);
+    background-color: rgba(228, 98, 98, 0.871);
 }
 
 .keyboard_row .disable {
-    background-color: gray;
-    ;
+    background-color: rgba(128, 128, 128, 0.86);
 }
 
 
@@ -254,13 +263,11 @@ span {
 
 .restartGame {
     height: 60px;
-    position: absolute;
-    top: 0.5%;
-    left: (50% - 50px);
+
     border-radius: 15px;
     cursor: pointer;
     color: white;
-    background-color: rgb(66, 182, 124);
+    background-color: rgba(66, 182, 124, 0.708);
     border: solid 3px rgb(237, 241, 237);
     letter-spacing: 0.05em;
     font-size: 1.5em;
@@ -271,95 +278,33 @@ span {
 
 .restartGame:hover {
     color: #0582ff;
-    -webkit-text-stroke: 2px white;
-    transform: scale(1.1);
+
+    animation: parpadea ease 1s infinite;
     border: solid 3px black;
 }
 
-footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    color: white;
-    width: 100%;
-    height: 10vh;
-    background-color: rgba(0, 0, 0, 0.818);
-
-}
-
-.redes {
-    width: 100px;
-    display: flex;
-    justify-content: space-around;
-}
-
-.fa-linkedin:hover {
-    color: #0C67C3;
-}
-
-.fa-github:hover {
-    filter: invert(100%);
-}
-
-
-@media (max-width:1000px) {
-
-    .gameArea_word {
-        text-align: center;
-        min-width: 22px;
-        height: 100%;
-    }
-
-    h1 {
-        top: 20%;
-        font-size: 1.2em;
-    }
-
-    main {
-        gap: 0;
-        justify-content: space-around;
-    }
-
-    .letras {
-        position: relative;
-        bottom: 0;
-    }
-
-
-
-    .canvas {
-        flex-direction: column;
-        gap: 100px;
-    }
-
-    canvas {
-        height: 100%;
-        border: solid 10px rgb(2, 36, 2);
-    }
-
-}
-
 @media (max-width:450px) {
+
     body {
-        width: 100%;
         font-size: 0.7em;
     }
 
-    span {
-
-        font-size: 3.5vmax;
+    .main {
+        width: 95%;
     }
 
-    main {
-        justify-content: center;
+    .letras {
+        width: 80%;
     }
 
-
+    .gameArea_word {
+        -webkit-text-stroke: 1px rgb(0, 0, 0);
+        width: 100%;
+        height: 100%;
+    }
 
     span {
-        text-align: center;
-        font-weight: 50;
+        font-size: 0.5em;
     }
 
     .keyboard {
@@ -386,17 +331,14 @@ footer {
         color: #0582ff;
     }
 
-
     .canvas {
-        height: 200px;
         width: 95%;
-        margin-top: 50px;
-        gap: 35px;
+        margin-top: 20px;
     }
 
     canvas {
         height: 100%;
-        border: solid 5px rgb(2, 36, 2);
+        border: solid 5px rgba(24, 8, 1, 0.718);
     }
 
     .restartGame {
