@@ -45,7 +45,8 @@ window.onload = function () {
     document.body.appendChild(sonidoerror);
     document.querySelector(".restartGame").addEventListener("click", restartGame);
     document.addEventListener('keydown', vertecla);
-
+    window.addEventListener("blur", () => { bso.pause(); console.log("pausa"); });
+    window.addEventListener("focus", () => { bso.play(); console.log("play"); });
     let lifes = document.querySelector(".lifes");
     let gameArea = document.querySelector(".letras");
     let teclaTeclado = document.querySelectorAll("li");
