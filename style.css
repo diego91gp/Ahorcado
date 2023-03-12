@@ -331,10 +331,11 @@ p {
 }
 
 footer {
+    display: none;
     margin-top: 20px;
     position: relative;
-    bottom: 0;
-    display: flex;
+    bottom: 0 !important;
+
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
